@@ -1,4 +1,5 @@
 ## Solution 1: Double For Loop
+## TC - O(N2), SC - O(1)
 
 def twoNumberSum(array, targetSum):
     # Write your code here.
@@ -12,3 +13,4 @@ def twoNumberSum(array, targetSum):
                 
     return []
     pass
+
