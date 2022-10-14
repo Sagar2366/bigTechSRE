@@ -183,3 +183,16 @@ Use function : package-name.function_name
   }
   `
 - To refer variable from struct use `structName.structVariable`
+
+## Goroutines 
+- To make function concurrent put keyword `go` in front of it
+- `Waitgroup` waits for the launched goroutine to finish
+- Package sync provide basic sync functionality
+- wg.Add() - Specify number of goroutines to wait for
+- wg.wait() - Blocks until the waitgroup count is 0
+- wg.done() - Decrements waitgroup counter by 1 
+              called by the goroutines to indicate that it's finished
+
+- Go uses `Green threads`, abstraction of an actual thread
+- Goroutines are cheaper & lightweight as compared to OS threads
+- Built-in functionality for Goroutines to talk with each other
