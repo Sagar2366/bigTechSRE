@@ -166,3 +166,20 @@ Use function : package-name.function_name
 `
 
 ## Varaibles scopes - Local, Package, Global level
+
+## Maps 
+- Maps unique values to keys
+- Cannot have mixed datatype values
+- Syntax :
+  `mapVarName := make(map[keyDataType]valuesDataType`
+
+## Struct
+- Can hold mixed data types
+- Allows to define a structure (which fields to put) of the user type
+- Syntax : 
+  `
+  type structName struct {
+
+  }
+  `
+- To refer variable from struct use `structName.structVariable`
