@@ -1,3 +1,4 @@
+## Print formatted data in Go
 - It takes template string & annotation verb that will tell format function how to format 
   the variable passed in.
 - Package fmt implements formatted I/O with functions analogous to C's printf and scanf. The format 'verbs' are derived from C's but are simpler.
