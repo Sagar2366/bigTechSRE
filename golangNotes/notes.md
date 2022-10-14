@@ -146,8 +146,23 @@ if condition {
     function_name()   <--- Function calling
   `
 
-  ## Package level variables
-  - Defined at the top outside all functions
-  - They can be accessible from any function
-  - And in all files which are in same package
-  - cannot be created with `:=` operator
+## Package level variables
+- Defined at the top outside all functions
+- They can be accessible from any function
+- And in all files which are in same package
+- cannot be created with `:=` operator
+
+
+## Packages in Go
+- Go programs are organized into packages
+- A package is a collection of Go files
+- To use function from custom package - declare function with capital letter
+
+`
+Create folder for new packages
+export function to use in other package : func First_letter_capital_func_name() {}
+import package : module-name/package-name
+Use function : package-name.function_name
+`
+
+## Varaibles scopes - Local, Package, Global level
