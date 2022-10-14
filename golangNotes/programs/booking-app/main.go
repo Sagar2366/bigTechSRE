@@ -1,7 +1,9 @@
 package main
 
 import (
+	"booking-app/helper"
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -10,6 +12,16 @@ const conferenceTickets int = 50
 
 var remainingTickets uint = 50
 var bookings []string
+var bookingsMap = make([]map[string]string, 0) // Initialising list of maps, we need to provide intiale size - here we used 0
+
+var bookingsStruct = make([]UserData, 0)
+
+type UserData struct {
+	firstName1       string
+	lastName1        string
+	email1           string
+	numberOfTickets1 uint
+}
 
 func main() {
 	/*
@@ -27,9 +39,12 @@ func main() {
 
 		firstName, lastName, email, userTickets := getUserInput()
 		getFirstNames := printFirstNames()
-		fmt.Printf("First names of the bookings are: %v\n", getFirstNames)
+		FirstNamesFromMap := getFirstNamesFromMap()
 
-		isValidName, isValidEmail, isValidTicketNumber := validateUserInput(firstName, lastName, email, userTickets)
+		fmt.Printf("First names of the bookings are: %v\n", getFirstNames)
+		fmt.Printf("First names of the bookings maps are: %v\n", FirstNamesFromMap)
+
+		isValidName, isValidEmail, isValidTicketNumber := helper.ValidateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
 		if isValidName && isValidEmail && isValidTicketNumber {
 
@@ -86,13 +101,23 @@ func printFirstNames() []string {
 	return getFirstNames
 }
 
-func validateUserInput(firstName string, lastName string, email string, userTickets uint) (bool, bool, bool) {
-	isValidName := len(firstName) >= 2 && len(lastName) >= 2
-	isValidEmail := strings.Contains(email, "@")
-	isValidTicketNumber := userTickets > 0 && userTickets <= remainingTickets
-	return isValidName, isValidEmail, isValidTicketNumber
+func getFirstNamesFromMap() []string {
+	firstNames := []string{}
+
+	for _, bookings := range bookingsStruct {
+		firstNames = append(firstNames, bookings.firstName1)
+	}
+	return firstNames
 }
 
+func getFirstNamesFromStruct() []string {
+	firstNames := []string{}
+
+	for _, bookings := range bookingsMap {
+		firstNames = append(firstNames, bookings["firstName"])
+	}
+	return firstNames
+}
 func getUserInput() (string, string, string, uint) {
 	var firstName string
 	var lastName string
@@ -116,7 +141,24 @@ func getUserInput() (string, string, string, uint) {
 
 func bookTicket(userTickets uint, firstName string, lastName string, email string) {
 	remainingTickets = remainingTickets - userTickets
+
+	userData := make(map[string]string)
+	userData["firstName"] = firstName
+	userData["lastName"] = lastName
+	userData["email"] = email
+	userData["numberOfTickets"] = strconv.FormatUint(uint64(userTickets), 10) // Converting uint to string
+
+	userDataStruct := UserData{
+		firstName1:       firstName,
+		lastName1:        lastName,
+		email1:           email,
+		numberOfTickets1: userTickets,
+	}
 	bookings = append(bookings, firstName+" "+lastName)
+
+	bookingsMap = append(bookingsMap, userData)
+
+	bookingsStruct = append(bookingsStruct, userDataStruct)
 
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets are remaining for %v\n", remainingTickets, conferenceName)
@@ -124,4 +166,7 @@ func bookTicket(userTickets uint, firstName string, lastName string, email strin
 	fmt.Printf("First element in Bookings array is : %v\n", bookings[0])
 	fmt.Printf("Type of a Bookings array is : %T\n", bookings)
 	fmt.Printf("Lenght of a Bookings array is : %v\n", len(bookings))
+
+	fmt.Printf("List of bookings is %v\n", bookingsMap)
+	fmt.Printf("List of bookings form struct is %v\n", bookingsStruct)
 }
