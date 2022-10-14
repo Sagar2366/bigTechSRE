@@ -6,6 +6,12 @@
 - Update the value at one location and it will get updated where variable is referenced.
 - Make our app more flexible
 - If variable is declared but not used in the program, compiler shows warning for it.
+- Synatx :
+    `
+        var a = "Hello World"
+        a := "Hello World"
+        var a string = "Hello World"
+    `
 
 
 # Constants
