@@ -109,3 +109,45 @@
     for _, index_var := range slice_var{}
 
   `
+
+## if else statement in Go
+`
+if condition {
+  // code to be executed if condition is true
+} else {
+  // code to be executed if condition is false
+}
+`
+
+## Blank identifier
+- Blank identifier `_` used when variable must be declared but will not be used in the program.
+- So with Go, we need to make unused variables explicit
+## Compare two variables or values in Go
+- Use `==` to compare to values and `=` to assign the value to variable
+
+## Break and continue 
+- Break will terminate the entire for loop execution and continue with the code right after 
+  for loop 
+- Continue causes loop to skip the remainder of its body & immediately retesting its condition
+
+## Switch statement
+- Allows a variable to be tested for equality against a list of values
+- Default case handles the case, if no match is found
+- Support multiple values to compare in case statement
+
+## Functions
+- Encapsulate code into own container which logically belong together
+- Synatx :
+  `
+    func function_name {
+
+    }
+
+    function_name()   <--- Function calling
+  `
+
+  ## Package level variables
+  - Defined at the top outside all functions
+  - They can be accessible from any function
+  - And in all files which are in same package
+  - cannot be created with `:=` operator
