@@ -7,6 +7,8 @@ func main() {
 	var conferenceName string = "Go Conference" // conferenceName := "Go Conference" this syntax will only work with variables
 	const conferenceTickets int = 50
 	var remainingTickets uint = 50
+	var bookings [50]string
+	var bookingsSlice []string
 
 	fmt.Printf("Welcome to our %v booking application.\n", conferenceName)
 
@@ -32,8 +34,19 @@ func main() {
 	fmt.Scan(&userTickets)
 
 	remainingTickets = remainingTickets - userTickets
+	bookings[0] = firstName + " " + lastName
+	bookingsSlice = append(bookingsSlice, firstName+" "+lastName)
 
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets are remaining for %v\n", remainingTickets, conferenceName)
+	fmt.Printf("Bookings array is : %v\n", bookings)
+	fmt.Printf("First element in Bookings array is : %v\n", bookings[0])
+	fmt.Printf("Type of a Bookings array is : %T\n", bookings)
+	fmt.Printf("Lenght of a Bookings array is : %v\n", len(bookings))
+
+	fmt.Printf("Bookings slice is : %v\n", bookingsSlice)
+	fmt.Printf("First element in Bookings slice is : %v\n", bookingsSlice[0])
+	fmt.Printf("Type of a Bookings slice is : %T\n", bookingsSlice)
+	fmt.Printf("Lenght of a Bookings slice is : %v\n", len(bookingsSlice))
 
 }
