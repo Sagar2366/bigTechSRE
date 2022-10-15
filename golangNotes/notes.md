@@ -71,7 +71,15 @@
 - We need to tell compiler datatype when declaring the variable
 - Syntax :
     `var varname datatype`
-
+- Some of main datatypes :
+  `
+  - string
+  - bool
+  - int int8 int16 int32 int64
+  - uint uint8(byte) uint16 uint32 uint64 uintptr
+  - float32 float64
+  - complex64 complex128
+  `
 
 ## Arrays in Go
 
@@ -183,6 +191,25 @@ Use function : package-name.function_name
   }
   `
 - To refer variable from struct use `structName.structVariable`
+- Create struct object
+  `
+  structObj := StructName{properties in key:value format}
+  `
+- Value receiver methods
+  `
+  func (structVar StructName) func_name() returnType {
+
+  }
+  structObj.func_name()   <---- Calling function with struct object
+  `
+- Pointer receiver methods
+  `
+  func (structVar *StructName) func_name() returnType {
+
+  }
+  structObj.func_name()   <---- Calling function with struct object
+
+  `
 
 ## Goroutines 
 - To make function concurrent put keyword `go` in front of it
@@ -196,3 +223,8 @@ Use function : package-name.function_name
 - Go uses `Green threads`, abstraction of an actual thread
 - Goroutines are cheaper & lightweight as compared to OS threads
 - Built-in functionality for Goroutines to talk with each other
+
+
+## Interfaces
+- Similar functionality for functions but function signature can be different
+- Example : function for area of circle or rectangle
