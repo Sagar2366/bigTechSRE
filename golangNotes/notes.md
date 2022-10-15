@@ -156,7 +156,7 @@ if condition {
 ## Packages in Go
 - Go programs are organized into packages
 - A package is a collection of Go files
-- To use function from custom package - declare function with capital letter
+- To use function, variables from another package - declare it with a capital letter
 
 `
 Create folder for new packages
@@ -189,8 +189,8 @@ Use function : package-name.function_name
 - `Waitgroup` waits for the launched goroutine to finish
 - Package sync provide basic sync functionality
 - wg.Add() - Specify number of goroutines to wait for
-- wg.wait() - Blocks until the waitgroup count is 0
-- wg.done() - Decrements waitgroup counter by 1 
+- wg.Wait() - Blocks until the waitgroup count is 0
+- wg.Done() - Decrements waitgroup counter by 1 
               called by the goroutines to indicate that it's finished
 
 - Go uses `Green threads`, abstraction of an actual thread
