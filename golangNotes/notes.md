@@ -211,6 +211,22 @@ Use function : package-name.function_name
 
   `
 
+## Maps VS Structs
+- Map :
+  - All keys must be the same type
+  - All values must be the same type
+  - Use to represent the collection of related properties
+  - Don't need to know all keys at compile time
+  - Keys are indexed we can interate over them
+  - Reference Type
+
+- Structs :
+  - values can be of different type
+  - Use to represent a "thing" with a lot of different properties
+  - You need to know all the different fields at compile time
+  - Keys don't support indexing
+  - Value Type
+
 ## Goroutines 
 - To make function concurrent put keyword `go` in front of it
 - `Waitgroup` waits for the launched goroutine to finish
